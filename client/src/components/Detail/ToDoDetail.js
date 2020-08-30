@@ -5,8 +5,8 @@ import ToDoDetailItem from './DetailItem/ToDoDetailItem';
 import Axios from 'axios';
 
 const Container = styled.div`
-padding-top:20px;
-.home-button {
+	padding-top: 20px;
+	.home-button {
 		position: relative;
 		left: 80%;
 	}
@@ -23,6 +23,8 @@ const ToDoDetail = (props) => {
 				console.log('Data have been received');
 				const data = res.data;
 				setToDoList(data);
+				console.log(data);
+				console.log(toDoList);
 			})
 			.catch((error) => {
 				console.log('Error', error);
@@ -31,13 +33,22 @@ const ToDoDetail = (props) => {
 	useEffect(() => {
 		getAllTask();
 	}, []);
-	return (
-		<Container>
-			{toDoList.map((task) => (
-				<ToDoDetailItem task={task}></ToDoDetailItem>
-			))}
-		</Container>
-	);
+
+	if (Boolean(toDoList.length === 0)) {
+		return (
+			<Container>
+				<h1>There is no task is "To do"!</h1>
+			</Container>
+		);
+	} else {
+		return (
+			<Container>
+				{toDoList.map((task) => (
+					<ToDoDetailItem task={task}></ToDoDetailItem>
+				))}
+			</Container>
+		);
+	}
 };
 
 export default ToDoDetail;

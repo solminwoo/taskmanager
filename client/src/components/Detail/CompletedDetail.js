@@ -31,13 +31,21 @@ const CompletedDetail = (props) => {
 	useEffect(() => {
 		getAllTask();
 	}, []);
-	return (
-		<Container>
-			{completedList.map((task) => (
-				<CompletedDetailItem Item task={task}></CompletedDetailItem>
-			))}
-		</Container>
-	);
+	if (Boolean(completedList.length === 0)) {
+		return (
+			<Container>
+				<h1>There is no task is "Completed"!</h1>
+			</Container>
+		);
+	} else {
+		return (
+			<Container>
+				{completedList.map((task) => (
+					<CompletedDetailItem task={task}></CompletedDetailItem>
+				))}
+			</Container>
+		);
+	}
 };
 
 export default CompletedDetail;

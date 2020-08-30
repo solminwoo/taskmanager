@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import ToDoDetailItem from './DetailItem/ToDoDetailItem';
+import InProgressDetailItem from './DetailItem/InProgressDetailItem';
 import Axios from 'axios';
 
 const Container = styled.div`
@@ -32,13 +32,21 @@ const ToDoDetail = (props) => {
 	useEffect(() => {
 		getAllTask();
 	}, []);
-	return (
-		<Container>
-			{inProgressList.map((task) => (
-				<ToDoDetailItem task={task}></ToDoDetailItem>
-			))}
-		</Container>
-	);
+	if (Boolean(inProgressList.length === 0)) {
+		return (
+			<Container>
+				<h1>There is no task is "In progress"!</h1>
+			</Container>
+		);
+	} else {
+		return (
+			<Container>
+				{inProgressList.map((task) => (
+					<InProgressDetailItem task={task}></InProgressDetailItem>
+				))}
+			</Container>
+		);
+	}
 };
 
 export default ToDoDetail;
