@@ -35,7 +35,8 @@ const ToDoDetail = (props) => {
 	if (Boolean(inProgressList.length === 0)) {
 		return (
 			<Container>
-				<h1>There is no task is "In progress"!</h1>
+				<h1>There is no task in "In progress"!</h1>
+				<h4>If there is any task going on please create</h4>
 			</Container>
 		);
 	} else {

@@ -34,7 +34,7 @@ const CompletedDetail = (props) => {
 	if (Boolean(completedList.length === 0)) {
 		return (
 			<Container>
-				<h1>There is no task is "Completed"!</h1>
+				<h1>There is no task that have been "Completed"</h1>
 			</Container>
 		);
 	} else {

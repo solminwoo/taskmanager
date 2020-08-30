@@ -37,7 +37,8 @@ const ToDoDetail = (props) => {
 	if (Boolean(toDoList.length === 0)) {
 		return (
 			<Container>
-				<h1>There is no task is "To do"!</h1>
+				<h1>There is no task in "To do"!</h1>
+				<h4>If there is any task going on please create</h4>
 			</Container>
 		);
 	} else {

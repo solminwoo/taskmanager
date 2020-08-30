@@ -8,7 +8,7 @@ const Container = styled.div`
     border-right:2px solid #557A95;
     display:flex;
     width:20%;
-    min-height:70vh;
+    min-height:100%;
     ul{
         style:none
     }
